@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using Proyectocemilla_verde;
+using static Proyectocemilla_verde.Context.Aplication_DB_Context;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+
 
 //eliminado y puesto en startup
 //if (env.IsDevelopment())
