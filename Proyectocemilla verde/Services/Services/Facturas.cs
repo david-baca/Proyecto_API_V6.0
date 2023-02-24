@@ -1,26 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Proyectocemilla_verde.Services.IServices;
+using static Proyectocemilla_verde.Context.Aplication_DB_Context;
 
-namespace Domain.Entity
+namespace Proyectocemilla_verde.Services.Services
 {
-    internal class Facturas
+    internal class Facturas : IFacturas
     {
-        [Key]
-        public int FacturasId { get; set; }
-        [Required]
-        public string Razon_Social { get; set; }
-        [Required]
-        public string Feche { get; set; }
-        [Required]
-        public string RFC { get; set; }
-
-        [ForeignKey("Cliente")]
-        public int? Fkcliente { get; set; }
-        ICliente clieente = new ICliente();
+        private readonly AplicationdbContext _context;
+        public Facturas(AplicationdbContext context)
+        {
+            _context = context;
+        }
     }
 }

@@ -1,30 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Proyectocemilla_verde.Services.IServices;
+using static Proyectocemilla_verde.Context.Aplication_DB_Context;
 
-namespace Domain.Entity
+namespace Proyectocemilla_verde.Services.Services
 {
-    public class Usuario
+    public class Usuario : IUsuario
     {
-        [Key]
-        public int Id { get; set; }
-        public string UserName { get; set; }
-        public int Password { get; set; }
-        public DateTime CreatedDate { get; set; }
-
-        [ForeignKey("Empleado")]
-        public int? FKEmpleado { get; set; }
-
-        [ForeignKey("Rol")]
-        public int? FkRol { get; set; }
-
-        Rol rol = new Rol();
-        Empledo empleado = new Empledo();
-
-        
+        private readonly AplicationdbContext _context;
+        public Usuario(AplicationdbContext context)
+        {
+            _context = context;
+        }
     }
 }

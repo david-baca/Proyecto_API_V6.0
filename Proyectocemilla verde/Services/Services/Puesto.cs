@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Proyectocemilla_verde.Services.IServices;
+using static Proyectocemilla_verde.Context.Aplication_DB_Context;
 
-namespace Domain.Entity
+namespace Proyectocemilla_verde.Services.Services
 {
-    public class Puesto
+    public class Puesto : IPuesto
     {
-        [Key]
-        public int Id { get; set; }
-        
-        public string Name { get; set; }
-
+        private readonly AplicationdbContext _context;
+        public Puesto(AplicationdbContext context)
+        {
+            _context = context;
+        }
     }
 }

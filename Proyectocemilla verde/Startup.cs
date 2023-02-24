@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Proyectocemilla_verde.Services.IServices;
+using Proyectocemilla_verde.Services.Services;
 using static Proyectocemilla_verde.Context.Aplication_DB_Context;
 
 namespace Proyectocemilla_verde
@@ -19,6 +21,14 @@ namespace Proyectocemilla_verde
             {
                 options.UseSqlServer(Configuration.GetConnectionString("conexion"));
             });
+
+            services.AddTransient<ICliente, Cliente>();
+            services.AddTransient<IDepartamento, Departamento>();
+            services.AddTransient<IEmpleado, Empleado>();
+            services.AddTransient<IFacturas, Facturas>();
+            services.AddTransient<IRol, Rol>();
+            services.AddTransient<IUsuario, Usuario>();
+
 
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
