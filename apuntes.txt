@@ -1,0 +1,37 @@
+Creacion de startup{
+
+Eliminamos de la carpeta Program{
+            services.AddControllers();
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+}
+
+
+            
+}
+
+
+JSON web.io 
+
+Espara proteger la api{
+Es un estandar seguro para reprecentar reclamos de forma segura entre dos partes
+}
+
+interfaces e inyeccion de dependencias de clases
+Class coffe : Interface Cup
+El cafe depende de una interface Taza
+
+
+Domain es para el modelo de negocio {
+
+  *  Dto 
+Es la libreria de recursos no normalizados en tablas noramales (son especificos para las interfaces)
+ellos conmutaran la informacion de entiti (la base de datos) y base a su modelo le responderan
+con la estructura para realizar cambios en la base de datos asi protegiendo tu API
+
+  *  Entity
+Es el modelado de la BD que se emplea de forma normalizada interpretando tu base de
+datos para comunicarte desde tu Modelo para la Vista y Controlar sus resultados.
+
+}

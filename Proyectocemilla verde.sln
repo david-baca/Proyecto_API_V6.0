@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyectocemilla verde", "Proyectocemilla verde\Proyectocemilla verde.csproj", "{493DF078-301B-4F95-9600-C67AC49464C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proyectocemilla verde", "Proyectocemilla verde\Proyectocemilla verde.csproj", "{493DF078-301B-4F95-9600-C67AC49464C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{8DD92A2B-2B1C-40D0-921C-3A86CB23D5D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{8DD92A2B-2B1C-40D0-921C-3A86CB23D5D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{06FF105B-7215-4692-89B3-1EA49E9C42E1}"
 	ProjectSection(SolutionItems) = preProject
-		ZZZZ1.fs = ZZZZ1.fs
+		Apuntes.txt = Apuntes.txt
 	EndProjectSection
 EndProject
 Global
