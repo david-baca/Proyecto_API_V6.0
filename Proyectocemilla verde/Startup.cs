@@ -22,12 +22,12 @@ namespace Proyectocemilla_verde
                 options.UseSqlServer(Configuration.GetConnectionString("conexion"));
             });
 
-            services.AddTransient<ICliente, Cliente>();
-            services.AddTransient<IDepartamento, Departamento>();
-            services.AddTransient<IEmpleado, Empleado>();
-            services.AddTransient<IFacturas, Facturas>();
-            services.AddTransient<IRol, Rol>();
-            services.AddTransient<IUsuario, Usuario>();
+            services.AddTransient<ICliente, ClienteServices>();
+            services.AddTransient<IDepartamento, DepartamentoServices>();
+            services.AddTransient<IEmpleado, EmpleadoServices>();
+            services.AddTransient<IFacturas, FacturasServices>();
+            services.AddTransient<IRol, RolServices>();
+            services.AddTransient<IUsuario, UsuarioServices>();
 
 
             services.AddControllers();

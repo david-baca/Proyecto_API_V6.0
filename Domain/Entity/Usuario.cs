@@ -22,8 +22,8 @@ namespace Domain.Entity
         [ForeignKey("Rol")]
         public int? FkRol { get; set; }
 
-        Rol rol = new Rol();
-        Empledo empleado = new Empledo();
+        public Rol Rol { get; set; }
+        public Empledo Empleado { get; set; }
 
         
     }

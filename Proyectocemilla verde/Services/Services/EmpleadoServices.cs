@@ -3,10 +3,10 @@ using static Proyectocemilla_verde.Context.Aplication_DB_Context;
 
 namespace Proyectocemilla_verde.Services.Services
 {
-    internal class Facturas : IFacturas
+    public class EmpleadoServices : IEmpleado
     {
         private readonly AplicationdbContext _context;
-        public Facturas(AplicationdbContext context)
+        public EmpleadoServices(AplicationdbContext context)
         {
             _context = context;
         }

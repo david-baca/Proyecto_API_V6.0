@@ -3,10 +3,10 @@ using static Proyectocemilla_verde.Context.Aplication_DB_Context;
 
 namespace Proyectocemilla_verde.Services.Services
 {
-    public class Rol : IRol
+    public class PuestoServices : IPuesto
     {
         private readonly AplicationdbContext _context;
-        public Rol(AplicationdbContext context)
+        public PuestoServices(AplicationdbContext context)
         {
             _context = context;
         }

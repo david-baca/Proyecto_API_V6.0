@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    internal class Facturas
+    public class Factura
     {
         [Key]
         public int FacturasId { get; set; }
@@ -21,6 +16,7 @@ namespace Domain.Entity
 
         [ForeignKey("Cliente")]
         public int? Fkcliente { get; set; }
-        Cliente clieente = new Cliente();
+
+        public Cliente Cliente { get; set; }
     }
 }
