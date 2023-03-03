@@ -1,4 +1,5 @@
-﻿using Domain.Dto;
+﻿using Azure;
+using Domain.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Proyectocemilla_verde.Services.IServices;
 using Proyectocemilla_verde.Services.Services;
@@ -16,7 +17,7 @@ namespace Proyectocemilla_verde.Controllers
         } 
 
         [HttpPost]
-        public ActionResult<RolResponse> CrearRol([FromBody] RolResponse i)
+        public ActionResult<Response<RolResponse>> CrearRol([FromBody] RolResponse i)
         {
             try
             {
@@ -31,7 +32,7 @@ namespace Proyectocemilla_verde.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<RolResponse>> getRol()
+        public ActionResult<List < Response<RolResponse> > > getRol()
         {
             try
             {

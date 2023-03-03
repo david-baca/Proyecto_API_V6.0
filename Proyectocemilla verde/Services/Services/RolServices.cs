@@ -1,4 +1,5 @@
-﻿using Domain.Dto;
+﻿using Azure;
+using Domain.Dto;
 using Domain.Entity;
 using Proyectocemilla_verde.Services.IServices;
 using static Proyectocemilla_verde.Context.Aplication_DB_Context;
@@ -13,14 +14,10 @@ namespace Proyectocemilla_verde.Services.Services
             _context = context;
         }
 
-        public async Task<RolResponse> CrearRolBD(RolResponse request)
+        public async Task< Response<RolResponse> > CrearRolBD(RolResponse request)
         {
             try
             {
-                if (request == null)
-                {
-                    throw new ArgumentNullException(nameof(request));
-                }
 
                 Rol nuevo = new Rol()
                 {
@@ -28,8 +25,8 @@ namespace Proyectocemilla_verde.Services.Services
                 };
                 _context.Roles.Add(nuevo);
                 await _context.SaveChangesAsync();
-
-                return request;
+                var x = new (request);
+                return ;
             }
             catch (Exception ex)
             {
@@ -37,7 +34,7 @@ namespace Proyectocemilla_verde.Services.Services
             }
         }
 
-        public async Task<List<RolResponse>> ObtenerRolesenlaBD()
+        public async Task<List<Response<UsuarioResponse>>> ObtenerRolesenlaBD()
         {
             try
             {
