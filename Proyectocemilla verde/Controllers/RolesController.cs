@@ -17,12 +17,11 @@ namespace Proyectocemilla_verde.Controllers
         } 
 
         [HttpPost]
-        public ActionResult<Response<RolResponse>> CrearRol([FromBody] RolResponse i)
+        public async Task<ActionResult> CrearRol([FromBody] RolResponse i)
         {
             try
             {
-                _RolServices.CrearRolBD(i);
-                return View();
+                return Ok(await _RolServices.CrearRolBD(i));
             }
             catch (Exception ex)
             {
@@ -32,17 +31,9 @@ namespace Proyectocemilla_verde.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List < Response<RolResponse> > > getRol()
+        public async Task<ActionResult> getRol()
         {
-            try
-            {
-                _RolServices.ObtenerRolesenlaBD();
-                return View();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Alert -" + ex.Message);
-            }
+             return Ok(await _RolServices.ObtenerRolesenlaBD());
         }
     }
 }

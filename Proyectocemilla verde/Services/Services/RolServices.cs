@@ -14,7 +14,7 @@ namespace Proyectocemilla_verde.Services.Services
             _context = context;
         }
 
-        public async Task< Response<RolResponse> > CrearRolBD(RolResponse request)
+        public async Task<Response<Rol>> CrearRolBD(RolResponse request)
         {
             try
             {
