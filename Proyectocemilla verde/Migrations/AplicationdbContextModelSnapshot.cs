@@ -72,7 +72,7 @@ namespace Proyectocemillaverde.Migrations
                     b.ToTable("Departamentos");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Empledo", b =>
+            modelBuilder.Entity("Domain.Entity.Empleado", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -100,7 +100,7 @@ namespace Proyectocemillaverde.Migrations
 
                     b.HasIndex("FKpuesto");
 
-                    b.ToTable("Empledos");
+                    b.ToTable("Empleados");
                 });
 
             modelBuilder.Entity("Domain.Entity.Factura", b =>
@@ -184,8 +184,9 @@ namespace Proyectocemillaverde.Migrations
                     b.Property<int?>("FkRol")
                         .HasColumnType("int");
 
-                    b.Property<int>("Password")
-                        .HasColumnType("int");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -200,7 +201,7 @@ namespace Proyectocemillaverde.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Empledo", b =>
+            modelBuilder.Entity("Domain.Entity.Empleado", b =>
                 {
                     b.HasOne("Domain.Entity.Departamento", "Departamento")
                         .WithMany()
@@ -226,7 +227,7 @@ namespace Proyectocemillaverde.Migrations
 
             modelBuilder.Entity("Domain.Entity.Usuario", b =>
                 {
-                    b.HasOne("Domain.Entity.Empledo", "Empleado")
+                    b.HasOne("Domain.Entity.Empleado", "Empleado")
                         .WithMany()
                         .HasForeignKey("FKEmpleado");
 

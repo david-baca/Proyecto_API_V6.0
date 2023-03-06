@@ -1,27 +1,25 @@
-﻿using Azure;
-using Domain.Dto;
+﻿using Domain.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Proyectocemilla_verde.Services.IServices;
-using Proyectocemilla_verde.Services.Services;
 
 namespace Proyectocemilla_verde.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RolesController : Controller
+    public class ClienteController : Controller
     {
-        private readonly IRol _RolServices;
-        public RolesController(IRol RolServices)
+        private readonly ICliente _ClienteServices;
+        public ClienteController(ICliente ClienteServices)
         {
-            _RolServices = RolServices;
+            _ClienteServices = ClienteServices;
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetRoles()
+        public async Task<ActionResult> GetCliente()
         {
             try
             {
-                return Ok(await _RolServices.Obtener_Roles_BD());
+                return Ok(await _ClienteServices.Obtener_Cliente_BD());
             }
             catch (Exception ex)
             {
@@ -31,18 +29,17 @@ namespace Proyectocemilla_verde.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateRol([FromBody] RolResponse i)
+        public async Task<ActionResult> CreateCliente ([FromBody] ClienteResponse i)
 
         {
             try
             {
-                return Ok(await _RolServices.Ingresar_Rol_BD(i));
+                return Ok(await _ClienteServices.Ingresar_Cliente_BD(i));
             }
             catch (Exception ex)
             {
                 throw new Exception("Alert -" + ex.Message);
             }
         }
-
     }
 }

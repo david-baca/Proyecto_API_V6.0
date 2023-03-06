@@ -12,7 +12,7 @@ namespace Domain.Dto
         public Response(T data, string mensaje = null) {
            success= true;
            Message = mensaje;
-        Result = data;
+           Result = data;
         }
 
         public Response(string i)

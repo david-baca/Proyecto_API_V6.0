@@ -8,8 +8,7 @@ namespace Proyectocemilla_verde.Services.IServices
 {
     public interface IRol
     {
-        public Task<Response<RolResponse>> CrearRolBD(RolResponse request);
-
-        public Task<List<Response<RolResponse>>> ObtenerRolesenlaBD();
+        public Task<Response<List<RolResponse>>> Obtener_Roles_BD();
+        public Task<Response<RolResponse>> Ingresar_Rol_BD(RolResponse request);
     }
 }

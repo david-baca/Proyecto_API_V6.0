@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public class Empledo
+    public class Empleado
     {
         [Key]
         public int Id { get; set; }

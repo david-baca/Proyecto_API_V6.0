@@ -26,6 +26,7 @@ namespace Proyectocemilla_verde
             services.AddTransient<IDepartamento, DepartamentoServices>();
             services.AddTransient<IEmpleado, EmpleadoServices>();
             services.AddTransient<IFacturas, FacturasServices>();
+            services.AddTransient<IPuesto, PuestoServices>();
             services.AddTransient<IRol, RolServices>();
             services.AddTransient<IUsuario, UsuarioServices>();
 

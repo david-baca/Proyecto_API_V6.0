@@ -15,58 +15,52 @@ namespace Proyectocemilla_verde.Services.Services
             _context = context;
         }
 
-        public async Task<Response<RolResponse>> CrearRolBD(RolResponse request)
+
+        public async Task<Response<List<RolResponse>>> Obtener_Roles_BD()
         {
-            try
-            {
-                if(request == null)
-                {
-                    return new Response<RolResponse>(request, "no puede estar vacio");
-                }
+            //Extraemos de la base de datos todos los empleados
+            List<Rol> BD = _context.Roles.ToList();
 
-                Rol nuevo = new Rol()
-                {
-                    NombreRol = request.NombreRol
-                };
-                _context.Roles.Add(nuevo);
-                await _context.SaveChangesAsync();
+            //Inicializamos una respuesta
+            List<RolResponse> request = new List<RolResponse>();
 
-                return new Response<RolResponse>(request, "Se creo");
-            }
-            catch (Exception ex)
+            if (BD.Count == 0)
             {
-                throw new Exception("Surgio un error: " + ex.Message);
+                return new Response<List<RolResponse>>(request, "No hay registros en la base de datos");
             }
+            int no_Rol = 0;
+            foreach (Rol item in BD)
+            {
+                no_Rol++;
+                RolResponse nuevo = new RolResponse(item, no_Rol);
+                request.Add(nuevo);
+            }
+            return new Response<List<RolResponse>>(request);
         }
 
-        public async Task<List<Response<RolResponse>>> ObtenerRolesenlaBD()
+        public async Task<Response<RolResponse>> Ingresar_Rol_BD(RolResponse request)
         {
-            try
-            {
-                var roles = _context.Roles.ToListAsync();
-                if (roles)
-                {
-                    return new Response<RolResponse>(request, "no puede estar vacio");
-                }
+            var no_Rol = _context.Roles.ToList();
+            request.NombreRol = request.NombreRol.ToUpper();
+            request.NO_Rol = no_Rol.Count+1;
 
-                List<Response<RolResponse>> lista = new List<Response<RolResponse>>();
-                foreach (var element in roles)
-                {
-                    RolResponse nuevo = new RolResponse()
-                    {
-                        NombreRol = element.NombreRol
-                    };
-                    Response<RolResponse> nuevo2 = new Response<RolResponse>(nuevo);
-                    lista.Add(nuevo2);
-                }
-
-                return lista;
-            }
-            catch (Exception ex)
+            if (_context.Roles.Where(x=>x.NombreRol==request.NombreRol).FirstOrDefault() != null)
             {
-                throw new Exception("Surgio un error: " + ex.Message);
+                return new Response<RolResponse>("Ya esxise el Rol "+request.NombreRol);
             }
+
+            Rol nuevo = new Rol()
+            {
+                NombreRol = request.NombreRol
+            };
+
+
+            _context.Roles.Add(nuevo);
+            await _context.SaveChangesAsync();
+
+            return new Response<RolResponse>(request);
         }
+
 
     }
 }

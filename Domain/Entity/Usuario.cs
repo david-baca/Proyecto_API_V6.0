@@ -13,7 +13,7 @@ namespace Domain.Entity
         [Key]
         public int Id { get; set; }
         public string UserName { get; set; }
-        public int Password { get; set; }
+        public string Password { get; set; }
         public DateTime CreatedDate { get; set; }
 
         [ForeignKey("Empleado")]
@@ -23,7 +23,7 @@ namespace Domain.Entity
         public int? FkRol { get; set; }
 
         public Rol Rol { get; set; }
-        public Empledo Empleado { get; set; }
+        public Empleado Empleado { get; set; }
 
         
     }

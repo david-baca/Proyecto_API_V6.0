@@ -14,31 +14,55 @@ namespace Proyectocemilla_verde.Controllers
         public UsuariosController(IUsuario UsuariosServices)
         {
             _UsuarioServices = UsuariosServices;
-        }
+        } 
 
-
-        [HttpPost]
-        public ActionResult<UsuarioResponse> CrearCliente([FromBody] UsuarioResponse i)
+        [HttpGet]
+        public async Task<ActionResult> GetUsuarios()
         {
             try
             {
-                _UsuarioServices.CrearUsuarioenBD(i);
-                return View();
+                return Ok(await _UsuarioServices.Obtener_Usuario_BD());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Alert -" + ex.Message);
             }
-            
+
         }
 
-        [HttpGet]
-        public ActionResult<List<UsuarioResponse>> getUser()
+        [HttpPost]
+        public async Task<ActionResult> CreateUsuario([FromBody] UsuarioResponse i)
+
         {
             try
             {
-                _UsuarioServices.ObtenerUsuariosdelaBD();
-                return View();
+                return Ok(await _UsuarioServices.Ingresar_Usuario_BD(i));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Alert -" + ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> EliminarUsuario(int id)
+        {
+            try
+            {
+                return Ok(await _UsuarioServices.Eliminar_Usuario_BD(id));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Alert -" + ex.Message);
+            }
+        }
+
+        [HttpPatch]
+        public async Task<ActionResult> Editar_Usuario_BD(int id, [FromBody] UsuarioResponse i)
+        {
+            try
+            {
+                return Ok(await _UsuarioServices.Editar_Usuario_BD(id,i));
             }
             catch (Exception ex)
             {

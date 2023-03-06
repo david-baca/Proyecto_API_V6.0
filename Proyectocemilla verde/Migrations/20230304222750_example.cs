@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Proyectocemillaverde.Migrations
 {
     /// <inheritdoc />
-    public partial class examples : Migration
+    public partial class example : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -89,7 +89,7 @@ namespace Proyectocemillaverde.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Empledos",
+                name: "Empleados",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -101,14 +101,14 @@ namespace Proyectocemillaverde.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Empledos", x => x.Id);
+                    table.PrimaryKey("PK_Empleados", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Empledos_Departamentos_FKdepartamento",
+                        name: "FK_Empleados_Departamentos_FKdepartamento",
                         column: x => x.FKdepartamento,
                         principalTable: "Departamentos",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Empledos_Puestos_FKpuesto",
+                        name: "FK_Empleados_Puestos_FKpuesto",
                         column: x => x.FKpuesto,
                         principalTable: "Puestos",
                         principalColumn: "Id");
@@ -121,7 +121,7 @@ namespace Proyectocemillaverde.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<int>(type: "int", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FKEmpleado = table.Column<int>(type: "int", nullable: true),
                     FkRol = table.Column<int>(type: "int", nullable: true)
@@ -130,9 +130,9 @@ namespace Proyectocemillaverde.Migrations
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Usuarios_Empledos_FKEmpleado",
+                        name: "FK_Usuarios_Empleados_FKEmpleado",
                         column: x => x.FKEmpleado,
-                        principalTable: "Empledos",
+                        principalTable: "Empleados",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Usuarios_Roles_FkRol",
@@ -142,13 +142,13 @@ namespace Proyectocemillaverde.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Empledos_FKdepartamento",
-                table: "Empledos",
+                name: "IX_Empleados_FKdepartamento",
+                table: "Empleados",
                 column: "FKdepartamento");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Empledos_FKpuesto",
-                table: "Empledos",
+                name: "IX_Empleados_FKpuesto",
+                table: "Empleados",
                 column: "FKpuesto");
 
             migrationBuilder.CreateIndex(
@@ -180,7 +180,7 @@ namespace Proyectocemillaverde.Migrations
                 name: "Clientes");
 
             migrationBuilder.DropTable(
-                name: "Empledos");
+                name: "Empleados");
 
             migrationBuilder.DropTable(
                 name: "Roles");
